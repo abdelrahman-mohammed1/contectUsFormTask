@@ -1,0 +1,162 @@
+
+
+updateName : (name)=>set((state)=>{return {user:...state.user,name})}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+updatePassword:(newPassword)=>set((state)=>{return :{user:{...state.user,password:newPassword}}}) 
+
+
+
+// import { useEffect, useState } from "react";
+// import useStore, { useProducts, useUserInformation } from "./store/store";
+
+
+// export default function App() {
+//   const { user, updateUserName, updateUserAge, updateUserEmail, updateUserPhone } = useUserInformation();
+//   const [operationActiveNow, setOperationActiveNow] = useState('');
+//   const { number, increament, decreament, resetNumber } = useStore();
+//   const { data, fetchProducts, loading } = useProducts();
+
+//   const handleLogin = () => {
+//     const data = {
+//       name: user.name,
+//       email: user.email,
+//       phone: user.phone,
+//       age: user.age
+//     }
+//     console.log(data);
+//     console.log('Login Successfully');
+
+
+//   }
+
+//   useEffect(function () {
+//     fetchProducts('https://dummyjson.com/recipes');
+
+//   }, [fetchProducts]);
+//   console.log(user);
+//   return (
+//     <div>
+//       <button onClick={() => { increament(); setOperationActiveNow('Increament') }} >Increament</button>
+//       <button onClick={() => { decreament(); setOperationActiveNow('Decreament') }} >Decreament</button>
+//       <button onClick={() => { resetNumber(); setOperationActiveNow('Reset') }}>Reset</button>
+//       <code>
+//         <br></br>
+//         <br></br>
+//         console.log(&apos;number&apos; , {number})
+//         <br></br>
+//         <br></br>
+//         operation that executed : increament, decreament, resetNumber
+//         {operationActiveNow && <p> operation that executed : {operationActiveNow}</p>}
+//       </code>
+
+
+
+//       <form>
+//         <input type="text" value={user.name} onChange={(e) => updateUserName(e.target.value)} placeholder="Enter Name" />
+//         <br></br>
+//         <input type="text" value={user.age} onChange={(e) => updateUserAge(e.target.value)} placeholder="Enter Age" />
+//         <br></br>
+//         <input type='tel' value={user.phone} onChange={(e) => updateUserPhone(e.target.value)} placeholder="Enter Phone" />
+//         <br></br>
+//         <input type='email' value={user.email} onChange={(e) => updateUserEmail(e.target.value)} placeholder="Enter Email" />
+//         <br></br>
+//         <button onClick={handleLogin} type="button">Login</button>
+//       </form>
+
+
+
+
+//       {loading && <p style={{ textAlign: 'center' }}>Loading...</p>}
+//       {data?.recipes?.length && data?.recipes?.map((product, i) => (
+//         <div key={i * 5}>
+//           <div>
+//             <img src={product.image} alt={product.name} style={{
+//               width: 'auto',
+//               height: '248px',
+//               textAlign: 'center',
+//               margin: ' 0 auto',
+//               display: 'flex',
+//             }} />
+//           </div>
+//           <div style={{ display: 'flex', justifyContent: "space-between", alignItems: "center", padding: '0 10px' }}>
+//             <h1>{product.name}</h1>
+//             <p>{product.cuisine}</p>
+//           </div>
+//           <ul style={{ textAlign: "center", fontSize: '20px', listStyle: "arabic-indic" }}>{product.ingredients.map((item) => (<li key={item}>{item}</li>
+//           ))}</ul>
+//           <hr></hr>
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
+
+
+
+
+// import { Button } from '@material-ui/core'
+
+
+// import { Formik, Form, Field, ErrorMessage } from "formik"
+
+// export default function App() {
+
+
+//   return (
+//     <div>
+
+//       <h1>Any Place in Your App!</h1>
+//       <Formik
+//         initialValues={{ email: '', password: '' }}
+//         validate={values => {
+//           const errors = {};
+//           if (!values.email) errors.email = 'Required';
+//           else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) { errors.email = 'Invalid email address'; }
+//           if (!values.password) errors.password = 'Required';
+//           else if (values.password.length < 8) errors.password = 'Password must be at least 8 characters long';
+//           return errors;
+//         }}
+//         onSubmit={(values, { setSubmitting }) => {
+//           setTimeout(() => {
+//             console.log(JSON.stringify(values, null, 2));
+
+//             setSubmitting(false);
+//           }, 400);
+//         }}
+//       >
+//         {({ isSubmitting }) => (
+//           <Form>
+//             <Field type="email" name="email" />
+//             <ErrorMessage name="email" component="div" />
+//             <Field type="password" name="password" />
+//             <ErrorMessage name="password" component="div" />
+//             <button type="submit" disabled={isSubmitting} >Submit</button>
+//             <Button style={{ backgroundColor: 'green', color: 'white' }}>
+//               Green Button
+//             </Button>
+//           </Form>
+
+//         )
+//         }
+//       </Formik>
+//     </div>
+//   )
+// }
+
+
+
